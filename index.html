@@ -408,7 +408,7 @@
                         var valId = props.id ? String(props.id) : "";
                         var valFait = props['Fait'] ? String(props['Fait']) : (props['fait'] ? String(props['fait']) : "");
                         var valNum = props['num'] ? String(props['num']) : "";
-                        var valEns = props['N ens'] ? String(props['N ens']) : (props['ensemble'] ? String(props['ensemble']) : "");
+                        var valEns = Object.keys(props).filter(k => k.toLowerCase().includes('ens')).map(k => props[k]).join(' ');
 
                         var isMatch = cibles.some(function(cible) {
                             var digitsOnly = cible.replace(/\D/g, '');
